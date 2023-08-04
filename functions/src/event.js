@@ -32,8 +32,8 @@ export async function getEventById(req, res) {
 
 //function to create, will add error handling later (as in if a user doesnt put in title, or date, etc...)
 export async function createEvent(req, res) {
-  const { title, description, date } = req.body;
-  const newEvent = { title, description, date: new Date(date) }; // add type "datetime-local" when building the form
+  const { title, description, date, type } = req.body;
+  const newEvent = { title, description,type, date: new Date(date) }; // add type "datetime-local" when building the form
   try {
     await coll.insertOne(newEvent);
     getAllEvents(req, res);
@@ -47,8 +47,8 @@ export async function createEvent(req, res) {
 
 export async function updateByEventId(req, res) {
   const eventId = req.params.id;
-  const { title, description, date } = req.body;
-  const updatedEvent = { title, description, date: new Date(date) };
+  const { title, description, date, type } = req.body;
+  const updatedEvent = { title, description,type, date: new Date(date) };
   try {
     await coll.findOneAndUpdate(
       { _id: new ObjectId(eventId) },
