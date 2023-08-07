@@ -31,8 +31,8 @@ export async function getUserById(req, res) {
 
 //function to create one user
 export async function createUser(req, res) {
-  const { name, email, grade, points } = req.body;
-  const newUser = { name, email, grade, points };
+  const { name, age, grade, points } = req.body;
+  const newUser = { name, age, grade, points };
   try {
     await coll.insertOne(newUser);
     getAllUsers(req, res);
@@ -45,8 +45,8 @@ export async function createUser(req, res) {
 //function to update
 export async function updateByUserId(req, res) {
   const userId = req.params.id;
-  const { name, email, grade, points } = req.body;
-  const updatedUser = { name, email, grade, points };
+  const { name, age, grade, points } = req.body;
+  const updatedUser = { name, age, grade, points };
   try {
     await coll.findOneAndUpdate(
       { _id: new ObjectId(userId) },
