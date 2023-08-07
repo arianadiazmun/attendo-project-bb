@@ -16,8 +16,8 @@ app.use(cors());
 app.get('/users', getAllUsers);
 app.get('/users/:id',getUserById);
 app.post('/users',createUser);//users?
-app.patch('users/:id',updateByUserId);
-app.delete('users/:id',deleteByUserId);
+app.patch('/users/:id',updateByUserId);
+app.delete('/users/:id',deleteByUserId);
 
 //events routes:
 //app.get("/", (req, res) => res.send("ari 2.0 and ari 1.0"));

@@ -9,8 +9,7 @@ const coll = db.collection(coll_user);
 //write a function to list all users
 export async function getAllUsers(req, res) {
   try {
-    const docs = await coll.find().sort({ points: -1 }).toArray();
-    const users = docs.map((doc) => ({ ...doc }));
+    const users = await coll.find().sort({ points: -1 }).toArray();
     res.send(users);
   } catch (err) {
     console.error(err);
