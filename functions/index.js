@@ -1,8 +1,7 @@
+import { onRequest } from "firebase-functions/v2/https";
 import express from "express";
 import cors from "cors";
-//import functions from "firebase-functions";
 import { createEvent, deleteByEventId, getAllEvents, getEventById, updateByEventId } from "./src/event.js";
-import { onRequest } from "firebase-functions/v2/https";
 import { createUser, deleteByUserId,getUserById, getAllUsers, updateByUserId } from "./src/user.js";
 
 const app = express();

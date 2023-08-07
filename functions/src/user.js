@@ -32,7 +32,7 @@ export async function getUserById(req, res) {
 //function to create one user
 export async function createUser(req, res) {
   const { name, age, grade, points } = req.body;
-  const newUser = { name, age, grade, points };
+  const newUser = { name, age, grade, points: Number(points) };
   try {
     await coll.insertOne(newUser);
     getAllUsers(req, res);

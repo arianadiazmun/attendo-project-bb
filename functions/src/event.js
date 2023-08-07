@@ -9,9 +9,8 @@ const coll = db.collection(coll_event);
 //function to list all  events
 export async function getAllEvents(req, res) {
   try {
-    const docs = await coll.find().sort({ date: 1 }).toArray();
-    const events = docs.map((doc) => ({ ...doc }));
-    res.send(events);
+    const events = await coll.find().sort({ date: 1 }).toArray();
+    res.send(events); //Browser can display the events on the webpage
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });
